@@ -13,13 +13,14 @@
         <action
             android:id="@+id/detayGecis"
             app:destination="@id/detayFragment" />
-        <argument
-            android:name="karakterDetay"
-            app:argType="com.example.rickandmortyapp.data.CharacterDto" />
     </fragment>
     <fragment
         android:id="@+id/detayFragment"
         android:name="com.example.rickandmortyapp.fragment.DetayFragment"
         android:label="fragment_detay"
-        tools:layout="@layout/fragment_detay" />
+        tools:layout="@layout/fragment_detay" >
+        <argument
+            android:name="karakterDetay"
+            app:argType="com.example.rickandmortyapp.data.CharacterDto" />
+    </fragment>
 </navigation>

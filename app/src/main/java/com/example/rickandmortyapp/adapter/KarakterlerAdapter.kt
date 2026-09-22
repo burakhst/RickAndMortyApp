@@ -4,7 +4,10 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rickandmortyapp.fragment.AnasayfaFragmentDirections
 import com.example.rickandmortyapp.data.CharacterDto
 import com.example.rickandmortyapp.data.Karakterler
 import com.example.rickandmortyapp.databinding.CardTasarimBinding
@@ -27,7 +30,7 @@ class KarakterlerAdapter(var mContext: Context, var karakterlerListesi: List<Cha
         t.textViewKullanici.text = karakter.name
 
         t.root.setOnClickListener {
-            Snackbar.make(it, "${karakter.name} seçildi", Snackbar.LENGTH_SHORT).show()
+            Navigation.findNavController(it).navigate(AnasayfaFragmentDirections.detayGecis(karakter))
         }
     }
 

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -35,8 +36,6 @@ android {
 }
 
 dependencies {
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.cardview)
@@ -50,4 +49,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
