@@ -7,6 +7,7 @@ interface ApiService {
     @GET("character")
     suspend fun getCharacters(
         @Query("page") page: Int = 1,
-        @Query("name") name: String? = null
+        @Query("name") name: String? = null,
+        @Query("status") status: String? = null
     ): Karakterler
 }

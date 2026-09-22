@@ -6,6 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".fragment.AnasayfaFragment" >
 
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:singleSelection="true"
+        app:selectionRequired="false"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAlive"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alive" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDead"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dead" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipUnknown"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unknown" />
+
+    </com.google.android.material.chip.ChipGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
         android:layout_width="0dp"
@@ -14,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupStatus" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
