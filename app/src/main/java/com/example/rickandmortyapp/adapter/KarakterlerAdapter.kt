@@ -13,8 +13,9 @@ import com.example.rickandmortyapp.data.Karakterler
 import com.example.rickandmortyapp.databinding.CardTasarimBinding
 import com.google.android.material.snackbar.Snackbar
 
-class KarakterlerAdapter(var mContext: Context, var karakterlerListesi: List<CharacterDto>)
+class KarakterlerAdapter(var mContext: Context, var karakterlerListesi: ArrayList<CharacterDto>)
     : RecyclerView.Adapter<KarakterlerAdapter.CardTasarimTutucu>() {
+
     inner class CardTasarimTutucu(var tasarim: CardTasarimBinding): RecyclerView.ViewHolder(tasarim.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardTasarimTutucu {
@@ -36,6 +37,16 @@ class KarakterlerAdapter(var mContext: Context, var karakterlerListesi: List<Cha
 
     override fun getItemCount(): Int {
         return karakterlerListesi.size
+    }
+    fun yeniKarakterlerEkle(yeniListe: List<CharacterDto>) {
+        val baslangicPozisyonu = karakterlerListesi.size
+        karakterlerListesi.addAll(yeniListe)
+        notifyItemRangeInserted(baslangicPozisyonu, yeniListe.size)
+    }
+    fun listeyiYenile(yeniListe: List<CharacterDto>) {
+        karakterlerListesi.clear()
+        karakterlerListesi.addAll(yeniListe)
+        notifyDataSetChanged()
     }
 
 }

@@ -20,8 +20,21 @@ class DetayFragment : Fragment() {
 
         val gelenKarakter = args.karakterDetay
 
-        // 3. Bilgileri XML'deki bileşenlere basıyoruz
-        binding.textViewIsim.text = gelenKarakter.name
+        binding.toolbar.title =  gelenKarakter.name
+        if (gelenKarakter.status == "Alive") {
+            binding.imageViewDurumIcon.setImageResource(R.drawable.kalp)
+        } else if (gelenKarakter.status == "Dead") {
+            binding.imageViewDurumIcon.setImageResource(R.drawable.rip)
+        }
+
+        val turBilgisi = if (gelenKarakter.type.isNullOrEmpty()) "-" else gelenKarakter.type
+        binding.textViewTuru.text = "Tür: $turBilgisi"
+
+        binding.textViewCinsiyet.text = "Cinsiyet: ${gelenKarakter.gender}"
+        binding.textViewKokeni.text = "Köken: ${gelenKarakter.origin.name}"
+        binding.textViewEpisode.text = "Bölüm Sayısı: ${gelenKarakter.episode.size}"
+
+
 
         Glide.with(requireContext())
             .load(gelenKarakter.image)
